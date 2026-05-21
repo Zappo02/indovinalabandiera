@@ -1,180 +1,181 @@
-const COUNTRIES = [
-  { name: "Afghanistan", code: "af" },
-  { name: "Albania", code: "al" },
-  { name: "Algeria", code: "dz" },
-  { name: "Andorra", code: "ad" },
-  { name: "Angola", code: "ao" },
-  { name: "Arabia Saudita", code: "sa" },
-  { name: "Argentina", code: "ar" },
-  { name: "Armenia", code: "am" },
-  { name: "Australia", code: "au" },
-  { name: "Austria", code: "at" },
-  { name: "Azerbaigian", code: "az" },
-  { name: "Bahamas", code: "bs" },
-  { name: "Bahrain", code: "bh" },
-  { name: "Bangladesh", code: "bd" },
-  { name: "Belgio", code: "be" },
-  { name: "Belize", code: "bz" },
-  { name: "Benin", code: "bj" },
-  { name: "Bhutan", code: "bt" },
-  { name: "Bielorussia", code: "by" },
-  { name: "Bolivia", code: "bo" },
-  { name: "Bosnia ed Erzegovina", code: "ba" },
-  { name: "Botswana", code: "bw" },
-  { name: "Brasile", code: "br" },
-  { name: "Brunei", code: "bn" },
-  { name: "Bulgaria", code: "bg" },
-  { name: "Burkina Faso", code: "bf" },
-  { name: "Burundi", code: "bi" },
-  { name: "Cambogia", code: "kh" },
-  { name: "Camerun", code: "cm" },
-  { name: "Canada", code: "ca" },
-  { name: "Capo Verde", code: "cv" },
-  { name: "Ciad", code: "td" },
-  { name: "Cile", code: "cl" },
-  { name: "Cina", code: "cn" },
-  { name: "Cipro", code: "cy" },
-  { name: "Colombia", code: "co" },
-  { name: "Comore", code: "km" },
-  { name: "Congo", code: "cg" },
-  { name: "Corea del Nord", code: "kp" },
-  { name: "Corea del Sud", code: "kr" },
-  { name: "Costa Rica", code: "cr" },
-  { name: "Costa d'Avorio", code: "ci" },
-  { name: "Croazia", code: "hr" },
-  { name: "Cuba", code: "cu" },
-  { name: "Danimarca", code: "dk" },
-  { name: "Ecuador", code: "ec" },
-  { name: "Egitto", code: "eg" },
-  { name: "El Salvador", code: "sv" },
-  { name: "Emirati Arabi Uniti", code: "ae" },
-  { name: "Eritrea", code: "er" },
-  { name: "Estonia", code: "ee" },
-  { name: "Etiopia", code: "et" },
-  { name: "Fiji", code: "fj" },
-  { name: "Filippine", code: "ph" },
-  { name: "Finlandia", code: "fi" },
-  { name: "Francia", code: "fr" },
-  { name: "Gabon", code: "ga" },
-  { name: "Gambia", code: "gm" },
-  { name: "Georgia", code: "ge" },
-  { name: "Germania", code: "de" },
-  { name: "Ghana", code: "gh" },
-  { name: "Giamaica", code: "jm" },
-  { name: "Giappone", code: "jp" },
-  { name: "Gibuti", code: "dj" },
-  { name: "Giordania", code: "jo" },
-  { name: "Grecia", code: "gr" },
-  { name: "Guatemala", code: "gt" },
-  { name: "Guinea", code: "gn" },
-  { name: "Guinea-Bissau", code: "gw" },
-  { name: "Guinea Equatoriale", code: "gq" },
-  { name: "Guyana", code: "gy" },
-  { name: "Haiti", code: "ht" },
-  { name: "Honduras", code: "hn" },
-  { name: "India", code: "in" },
-  { name: "Indonesia", code: "id" },
-  { name: "Iran", code: "ir" },
-  { name: "Iraq", code: "iq" },
-  { name: "Irlanda", code: "ie" },
-  { name: "Islanda", code: "is" },
-  { name: "Israele", code: "il" },
-  { name: "Italia", code: "it" },
-  { name: "Kazakhstan", code: "kz" },
-  { name: "Kenya", code: "ke" },
-  { name: "Kirghizistan", code: "kg" },
-  { name: "Kiribati", code: "ki" },
-  { name: "Kosovo", code: "xk" },
-  { name: "Kuwait", code: "kw" },
-  { name: "Laos", code: "la" },
-  { name: "Lesotho", code: "ls" },
-  { name: "Lettonia", code: "lv" },
-  { name: "Libano", code: "lb" },
-  { name: "Liberia", code: "lr" },
-  { name: "Libia", code: "ly" },
-  { name: "Liechtenstein", code: "li" },
-  { name: "Lituania", code: "lt" },
-  { name: "Lussemburgo", code: "lu" },
-  { name: "Macedonia del Nord", code: "mk" },
-  { name: "Madagascar", code: "mg" },
-  { name: "Malawi", code: "mw" },
-  { name: "Maldive", code: "mv" },
-  { name: "Malesia", code: "my" },
-  { name: "Mali", code: "ml" },
-  { name: "Malta", code: "mt" },
-  { name: "Marocco", code: "ma" },
-  { name: "Mauritania", code: "mr" },
-  { name: "Mauritius", code: "mu" },
-  { name: "Messico", code: "mx" },
-  { name: "Moldavia", code: "md" },
-  { name: "Monaco", code: "mc" },
-  { name: "Mongolia", code: "mn" },
-  { name: "Montenegro", code: "me" },
-  { name: "Mozambico", code: "mz" },
-  { name: "Myanmar", code: "mm" },
-  { name: "Namibia", code: "na" },
-  { name: "Nepal", code: "np" },
-  { name: "Nicaragua", code: "ni" },
-  { name: "Niger", code: "ne" },
-  { name: "Nigeria", code: "ng" },
-  { name: "Norvegia", code: "no" },
-  { name: "Nuova Zelanda", code: "nz" },
-  { name: "Oman", code: "om" },
-  { name: "Pakistan", code: "pk" },
-  { name: "Palau", code: "pw" },
-  { name: "Panama", code: "pa" },
-  { name: "Papua Nuova Guinea", code: "pg" },
-  { name: "Paraguay", code: "py" },
-  { name: "Paesi Bassi", code: "nl" },
-  { name: "Perù", code: "pe" },
-  { name: "Polonia", code: "pl" },
-  { name: "Portogallo", code: "pt" },
-  { name: "Qatar", code: "qa" },
-  { name: "Regno Unito", code: "gb" },
-  { name: "Repubblica Ceca", code: "cz" },
-  { name: "Repubblica Centrafricana", code: "cf" },
-  { name: "Repubblica Democratica del Congo", code: "cd" },
-  { name: "Repubblica Dominicana", code: "do" },
-  { name: "Romania", code: "ro" },
-  { name: "Ruanda", code: "rw" },
-  { name: "Russia", code: "ru" },
-  { name: "San Marino", code: "sm" },
-  { name: "Senegal", code: "sn" },
-  { name: "Serbia", code: "rs" },
-  { name: "Sierra Leone", code: "sl" },
-  { name: "Singapore", code: "sg" },
-  { name: "Siria", code: "sy" },
-  { name: "Slovacchia", code: "sk" },
-  { name: "Slovenia", code: "si" },
-  { name: "Somalia", code: "so" },
-  { name: "Spagna", code: "es" },
-  { name: "Sri Lanka", code: "lk" },
-  { name: "Sudafrica", code: "za" },
-  { name: "Sudan", code: "sd" },
-  { name: "Sudan del Sud", code: "ss" },
-  { name: "Suriname", code: "sr" },
-  { name: "Svezia", code: "se" },
-  { name: "Svizzera", code: "ch" },
-  { name: "Tagikistan", code: "tj" },
-  { name: "Tanzania", code: "tz" },
-  { name: "Thailandia", code: "th" },
-  { name: "Timor Est", code: "tl" },
-  { name: "Togo", code: "tg" },
-  { name: "Trinidad e Tobago", code: "tt" },
-  { name: "Tunisia", code: "tn" },
-  { name: "Turchia", code: "tr" },
-  { name: "Turkmenistan", code: "tm" },
-  { name: "Uganda", code: "ug" },
-  { name: "Ucraina", code: "ua" },
-  { name: "Ungheria", code: "hu" },
-  { name: "Uruguay", code: "uy" },
-  { name: "Uzbekistan", code: "uz" },
-  { name: "Vanuatu", code: "vu" },
-  { name: "Venezuela", code: "ve" },
-  { name: "Vietnam", code: "vn" },
-  { name: "Yemen", code: "ye" },
-  { name: "Zambia", code: "zm" },
-  { name: "Zimbabwe", code: "zw" },
-];
+Dataset Paesi — Bandiera Daily
+176 paesi con codice ISO e coordinate geografiche
 
-export default COUNTRIES;
+Nome	Codice	Latitudine	Longitudine
+Afghanistan	AF	33.93	67.71
+Albania	AL	41.15	20.17
+Algeria	DZ	28.03	1.66
+Andorra	AD	42.55	1.6
+Angola	AO	-11.2	17.87
+Arabia Saudita	SA	23.89	45.08
+Argentina	AR	-38.42	-63.62
+Armenia	AM	40.07	45.04
+Australia	AU	-25.27	133.78
+Austria	AT	47.52	14.55
+Azerbaigian	AZ	40.14	47.58
+Bahamas	BS	25.03	-77.4
+Bahrain	BH	26	50.55
+Bangladesh	BD	23.68	90.36
+Belgio	BE	50.5	4.47
+Belize	BZ	17.19	-88.5
+Benin	BJ	9.31	2.32
+Bhutan	BT	27.51	90.43
+Bielorussia	BY	53.71	27.95
+Bolivia	BO	-16.29	-63.59
+Bosnia ed Erzegovina	BA	43.92	17.68
+Botswana	BW	-22.33	24.68
+Brasile	BR	-14.24	-51.93
+Brunei	BN	4.54	114.73
+Bulgaria	BG	42.73	25.49
+Burkina Faso	BF	12.36	-1.53
+Burundi	BI	-3.37	29.92
+Cambogia	KH	12.57	104.99
+Camerun	CM	3.85	11.5
+Canada	CA	56.13	-106.35
+Capo Verde	CV	16	-24.01
+Ciad	TD	15.45	18.73
+Cile	CL	-35.68	-71.54
+Cina	CN	35.86	104.2
+Cipro	CY	35.13	33.43
+Colombia	CO	4.57	-74.3
+Comore	KM	-11.88	43.87
+Congo	CG	-0.23	15.83
+Corea del Nord	KP	40.34	127.51
+Corea del Sud	KR	35.91	127.77
+Costa Rica	CR	9.75	-83.75
+Costa d'Avorio	CI	7.54	-5.55
+Croazia	HR	45.1	15.2
+Cuba	CU	21.52	-79.52
+Danimarca	DK	56.26	9.5
+Ecuador	EC	-1.83	-78.18
+Egitto	EG	26.82	30.8
+El Salvador	SV	13.79	-88.9
+Emirati Arabi Uniti	AE	23.42	53.85
+Eritrea	ER	15.18	39.78
+Estonia	EE	58.6	25.01
+Etiopia	ET	9.14	40.49
+Fiji	FJ	-17.71	178.07
+Filippine	PH	12.88	121.77
+Finlandia	FI	61.92	25.75
+Francia	FR	46.23	2.21
+Gabon	GA	-0.8	11.61
+Gambia	GM	13.44	-15.31
+Georgia	GE	42.32	43.36
+Germania	DE	51.17	10.45
+Ghana	GH	7.95	-1.02
+Giamaica	JM	18.11	-77.3
+Giappone	JP	36.2	138.25
+Gibuti	DJ	11.83	42.59
+Giordania	JO	30.59	36.24
+Grecia	GR	39.07	21.82
+Guatemala	GT	15.78	-90.23
+Guinea	GN	9.95	-11.24
+Guinea-Bissau	GW	11.8	-15.18
+Guinea Equatoriale	GQ	1.65	10.27
+Guyana	GY	4.86	-58.93
+Haiti	HT	18.97	-72.29
+Honduras	HN	15.2	-86.24
+India	IN	20.59	78.96
+Indonesia	ID	-0.79	113.92
+Iran	IR	32.43	53.69
+Iraq	IQ	33.22	43.68
+Irlanda	IE	53.41	-8.24
+Islanda	IS	64.96	-19.02
+Israele	IL	31.05	34.85
+Italia	IT	41.87	12.57
+Kazakhstan	KZ	48.02	66.92
+Kenya	KE	-0.02	37.91
+Kirghizistan	KG	41.2	74.77
+Kiribati	KI	-3.37	-168.73
+Kosovo	XK	42.6	20.9
+Kuwait	KW	29.31	47.48
+Laos	LA	19.86	102.5
+Lesotho	LS	-29.61	28.23
+Lettonia	LV	56.88	24.6
+Libano	LB	33.85	35.86
+Liberia	LR	6.43	-9.43
+Libia	LY	26.34	17.23
+Liechtenstein	LI	47.17	9.56
+Lituania	LT	55.17	23.88
+Lussemburgo	LU	49.82	6.13
+Macedonia del Nord	MK	41.61	21.75
+Madagascar	MG	-18.77	46.87
+Malawi	MW	-13.25	34.3
+Maldive	MV	3.2	73.22
+Malesia	MY	4.21	108.96
+Mali	ML	17.57	-4
+Malta	MT	35.94	14.38
+Marocco	MA	31.79	-7.09
+Mauritania	MR	21.01	-10.94
+Mauritius	MU	-20.35	57.55
+Messico	MX	23.63	-102.55
+Moldavia	MD	47.41	28.37
+Monaco	MC	43.73	7.4
+Mongolia	MN	46.86	103.85
+Montenegro	ME	42.71	19.37
+Mozambico	MZ	-18.67	35.53
+Myanmar	MM	21.92	95.96
+Namibia	NA	-22.96	18.49
+Nepal	NP	28.39	84.12
+Nicaragua	NI	12.87	-85.21
+Niger	NE	17.61	8.08
+Nigeria	NG	9.08	8.68
+Norvegia	NO	60.47	8.47
+Nuova Zelanda	NZ	-40.9	174.89
+Oman	OM	21.51	55.92
+Pakistan	PK	30.38	69.35
+Palau	PW	7.51	134.58
+Panama	PA	8.54	-80.78
+Papua Nuova Guinea	PG	-6.31	143.96
+Paraguay	PY	-23.44	-58.44
+Paesi Bassi	NL	52.13	5.29
+Peru	PE	-9.19	-75.02
+Polonia	PL	51.92	19.15
+Portogallo	PT	39.4	-8.22
+Qatar	QA	25.35	51.18
+Regno Unito	GB	55.38	-3.44
+Repubblica Ceca	CZ	49.82	15.47
+Repubblica Centrafricana	CF	6.61	20.94
+Repubblica Democratica del Congo	CD	-4.04	21.76
+Repubblica Dominicana	DO	18.74	-70.16
+Romania	RO	45.94	24.97
+Ruanda	RW	-1.94	29.87
+Russia	RU	61.52	105.32
+San Marino	SM	43.94	12.46
+Senegal	SN	14.5	-14.45
+Serbia	RS	44.02	21.01
+Sierra Leone	SL	8.46	-11.78
+Singapore	SG	1.35	103.82
+Siria	SY	34.8	38.99
+Slovacchia	SK	48.67	19.7
+Slovenia	SI	46.15	14.99
+Somalia	SO	5.15	46.2
+Spagna	ES	40.46	-3.75
+Sri Lanka	LK	7.87	80.77
+Sudafrica	ZA	-30.56	22.94
+Sudan	SD	12.86	30.22
+Sudan del Sud	SS	6.88	31.31
+Suriname	SR	3.92	-56.03
+Svezia	SE	60.13	18.64
+Svizzera	CH	46.82	8.23
+Tagikistan	TJ	38.86	71.28
+Tanzania	TZ	-6.37	34.89
+Thailandia	TH	15.87	100.99
+Timor Est	TL	-8.87	125.73
+Togo	TG	8.62	0.82
+Trinidad e Tobago	TT	10.69	-61.22
+Tunisia	TN	33.89	9.54
+Turchia	TR	38.96	35.24
+Turkmenistan	TM	38.97	59.56
+Uganda	UG	1.37	32.29
+Ucraina	UA	48.38	31.17
+Ungheria	HU	47.16	19.5
+Uruguay	UY	-32.52	-55.77
+Uzbekistan	UZ	41.38	64.59
+Vanuatu	VU	-15.38	166.96
+Venezuela	VE	6.42	-66.59
+Vietnam	VN	14.06	108.28
+Yemen	YE	15.55	48.52
+Zambia	ZM	-13.13	27.85
+Zimbabwe	ZW	-19.02	29.15
+
