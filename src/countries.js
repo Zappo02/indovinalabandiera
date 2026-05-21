@@ -1,181 +1,181 @@
-Dataset Paesi — Bandiera Daily
-176 paesi con codice ISO e coordinate geografiche
+// [name, code, lat, lng]
+const COUNTRIES = [
+  { name: "Afghanistan", code: "af", lat: 33.93, lng: 67.71 },
+  { name: "Albania", code: "al", lat: 41.15, lng: 20.17 },
+  { name: "Algeria", code: "dz", lat: 28.03, lng: 1.66 },
+  { name: "Andorra", code: "ad", lat: 42.55, lng: 1.60 },
+  { name: "Angola", code: "ao", lat: -11.20, lng: 17.87 },
+  { name: "Arabia Saudita", code: "sa", lat: 23.89, lng: 45.08 },
+  { name: "Argentina", code: "ar", lat: -38.42, lng: -63.62 },
+  { name: "Armenia", code: "am", lat: 40.07, lng: 45.04 },
+  { name: "Australia", code: "au", lat: -25.27, lng: 133.78 },
+  { name: "Austria", code: "at", lat: 47.52, lng: 14.55 },
+  { name: "Azerbaigian", code: "az", lat: 40.14, lng: 47.58 },
+  { name: "Bahamas", code: "bs", lat: 25.03, lng: -77.40 },
+  { name: "Bahrain", code: "bh", lat: 26.00, lng: 50.55 },
+  { name: "Bangladesh", code: "bd", lat: 23.68, lng: 90.36 },
+  { name: "Belgio", code: "be", lat: 50.50, lng: 4.47 },
+  { name: "Belize", code: "bz", lat: 17.19, lng: -88.50 },
+  { name: "Benin", code: "bj", lat: 9.31, lng: 2.32 },
+  { name: "Bhutan", code: "bt", lat: 27.51, lng: 90.43 },
+  { name: "Bielorussia", code: "by", lat: 53.71, lng: 27.95 },
+  { name: "Bolivia", code: "bo", lat: -16.29, lng: -63.59 },
+  { name: "Bosnia ed Erzegovina", code: "ba", lat: 43.92, lng: 17.68 },
+  { name: "Botswana", code: "bw", lat: -22.33, lng: 24.68 },
+  { name: "Brasile", code: "br", lat: -14.24, lng: -51.93 },
+  { name: "Brunei", code: "bn", lat: 4.54, lng: 114.73 },
+  { name: "Bulgaria", code: "bg", lat: 42.73, lng: 25.49 },
+  { name: "Burkina Faso", code: "bf", lat: 12.36, lng: -1.53 },
+  { name: "Burundi", code: "bi", lat: -3.37, lng: 29.92 },
+  { name: "Cambogia", code: "kh", lat: 12.57, lng: 104.99 },
+  { name: "Camerun", code: "cm", lat: 3.85, lng: 11.50 },
+  { name: "Canada", code: "ca", lat: 56.13, lng: -106.35 },
+  { name: "Capo Verde", code: "cv", lat: 16.00, lng: -24.01 },
+  { name: "Ciad", code: "td", lat: 15.45, lng: 18.73 },
+  { name: "Cile", code: "cl", lat: -35.68, lng: -71.54 },
+  { name: "Cina", code: "cn", lat: 35.86, lng: 104.20 },
+  { name: "Cipro", code: "cy", lat: 35.13, lng: 33.43 },
+  { name: "Colombia", code: "co", lat: 4.57, lng: -74.30 },
+  { name: "Comore", code: "km", lat: -11.88, lng: 43.87 },
+  { name: "Congo", code: "cg", lat: -0.23, lng: 15.83 },
+  { name: "Corea del Nord", code: "kp", lat: 40.34, lng: 127.51 },
+  { name: "Corea del Sud", code: "kr", lat: 35.91, lng: 127.77 },
+  { name: "Costa Rica", code: "cr", lat: 9.75, lng: -83.75 },
+  { name: "Costa d'Avorio", code: "ci", lat: 7.54, lng: -5.55 },
+  { name: "Croazia", code: "hr", lat: 45.10, lng: 15.20 },
+  { name: "Cuba", code: "cu", lat: 21.52, lng: -79.52 },
+  { name: "Danimarca", code: "dk", lat: 56.26, lng: 9.50 },
+  { name: "Ecuador", code: "ec", lat: -1.83, lng: -78.18 },
+  { name: "Egitto", code: "eg", lat: 26.82, lng: 30.80 },
+  { name: "El Salvador", code: "sv", lat: 13.79, lng: -88.90 },
+  { name: "Emirati Arabi Uniti", code: "ae", lat: 23.42, lng: 53.85 },
+  { name: "Eritrea", code: "er", lat: 15.18, lng: 39.78 },
+  { name: "Estonia", code: "ee", lat: 58.60, lng: 25.01 },
+  { name: "Etiopia", code: "et", lat: 9.14, lng: 40.49 },
+  { name: "Fiji", code: "fj", lat: -17.71, lng: 178.07 },
+  { name: "Filippine", code: "ph", lat: 12.88, lng: 121.77 },
+  { name: "Finlandia", code: "fi", lat: 61.92, lng: 25.75 },
+  { name: "Francia", code: "fr", lat: 46.23, lng: 2.21 },
+  { name: "Gabon", code: "ga", lat: -0.80, lng: 11.61 },
+  { name: "Gambia", code: "gm", lat: 13.44, lng: -15.31 },
+  { name: "Georgia", code: "ge", lat: 42.32, lng: 43.36 },
+  { name: "Germania", code: "de", lat: 51.17, lng: 10.45 },
+  { name: "Ghana", code: "gh", lat: 7.95, lng: -1.02 },
+  { name: "Giamaica", code: "jm", lat: 18.11, lng: -77.30 },
+  { name: "Giappone", code: "jp", lat: 36.20, lng: 138.25 },
+  { name: "Gibuti", code: "dj", lat: 11.83, lng: 42.59 },
+  { name: "Giordania", code: "jo", lat: 30.59, lng: 36.24 },
+  { name: "Grecia", code: "gr", lat: 39.07, lng: 21.82 },
+  { name: "Guatemala", code: "gt", lat: 15.78, lng: -90.23 },
+  { name: "Guinea", code: "gn", lat: 9.95, lng: -11.24 },
+  { name: "Guinea-Bissau", code: "gw", lat: 11.80, lng: -15.18 },
+  { name: "Guinea Equatoriale", code: "gq", lat: 1.65, lng: 10.27 },
+  { name: "Guyana", code: "gy", lat: 4.86, lng: -58.93 },
+  { name: "Haiti", code: "ht", lat: 18.97, lng: -72.29 },
+  { name: "Honduras", code: "hn", lat: 15.20, lng: -86.24 },
+  { name: "India", code: "in", lat: 20.59, lng: 78.96 },
+  { name: "Indonesia", code: "id", lat: -0.79, lng: 113.92 },
+  { name: "Iran", code: "ir", lat: 32.43, lng: 53.69 },
+  { name: "Iraq", code: "iq", lat: 33.22, lng: 43.68 },
+  { name: "Irlanda", code: "ie", lat: 53.41, lng: -8.24 },
+  { name: "Islanda", code: "is", lat: 64.96, lng: -19.02 },
+  { name: "Israele", code: "il", lat: 31.05, lng: 34.85 },
+  { name: "Italia", code: "it", lat: 41.87, lng: 12.57 },
+  { name: "Kazakhstan", code: "kz", lat: 48.02, lng: 66.92 },
+  { name: "Kenya", code: "ke", lat: -0.02, lng: 37.91 },
+  { name: "Kirghizistan", code: "kg", lat: 41.20, lng: 74.77 },
+  { name: "Kiribati", code: "ki", lat: -3.37, lng: -168.73 },
+  { name: "Kosovo", code: "xk", lat: 42.60, lng: 20.90 },
+  { name: "Kuwait", code: "kw", lat: 29.31, lng: 47.48 },
+  { name: "Laos", code: "la", lat: 19.86, lng: 102.50 },
+  { name: "Lesotho", code: "ls", lat: -29.61, lng: 28.23 },
+  { name: "Lettonia", code: "lv", lat: 56.88, lng: 24.60 },
+  { name: "Libano", code: "lb", lat: 33.85, lng: 35.86 },
+  { name: "Liberia", code: "lr", lat: 6.43, lng: -9.43 },
+  { name: "Libia", code: "ly", lat: 26.34, lng: 17.23 },
+  { name: "Liechtenstein", code: "li", lat: 47.17, lng: 9.56 },
+  { name: "Lituania", code: "lt", lat: 55.17, lng: 23.88 },
+  { name: "Lussemburgo", code: "lu", lat: 49.82, lng: 6.13 },
+  { name: "Macedonia del Nord", code: "mk", lat: 41.61, lng: 21.75 },
+  { name: "Madagascar", code: "mg", lat: -18.77, lng: 46.87 },
+  { name: "Malawi", code: "mw", lat: -13.25, lng: 34.30 },
+  { name: "Maldive", code: "mv", lat: 3.20, lng: 73.22 },
+  { name: "Malesia", code: "my", lat: 4.21, lng: 108.96 },
+  { name: "Mali", code: "ml", lat: 17.57, lng: -4.00 },
+  { name: "Malta", code: "mt", lat: 35.94, lng: 14.38 },
+  { name: "Marocco", code: "ma", lat: 31.79, lng: -7.09 },
+  { name: "Mauritania", code: "mr", lat: 21.01, lng: -10.94 },
+  { name: "Mauritius", code: "mu", lat: -20.35, lng: 57.55 },
+  { name: "Messico", code: "mx", lat: 23.63, lng: -102.55 },
+  { name: "Moldavia", code: "md", lat: 47.41, lng: 28.37 },
+  { name: "Monaco", code: "mc", lat: 43.73, lng: 7.40 },
+  { name: "Mongolia", code: "mn", lat: 46.86, lng: 103.85 },
+  { name: "Montenegro", code: "me", lat: 42.71, lng: 19.37 },
+  { name: "Mozambico", code: "mz", lat: -18.67, lng: 35.53 },
+  { name: "Myanmar", code: "mm", lat: 21.92, lng: 95.96 },
+  { name: "Namibia", code: "na", lat: -22.96, lng: 18.49 },
+  { name: "Nepal", code: "np", lat: 28.39, lng: 84.12 },
+  { name: "Nicaragua", code: "ni", lat: 12.87, lng: -85.21 },
+  { name: "Niger", code: "ne", lat: 17.61, lng: 8.08 },
+  { name: "Nigeria", code: "ng", lat: 9.08, lng: 8.68 },
+  { name: "Norvegia", code: "no", lat: 60.47, lng: 8.47 },
+  { name: "Nuova Zelanda", code: "nz", lat: -40.90, lng: 174.89 },
+  { name: "Oman", code: "om", lat: 21.51, lng: 55.92 },
+  { name: "Pakistan", code: "pk", lat: 30.38, lng: 69.35 },
+  { name: "Palau", code: "pw", lat: 7.51, lng: 134.58 },
+  { name: "Panama", code: "pa", lat: 8.54, lng: -80.78 },
+  { name: "Papua Nuova Guinea", code: "pg", lat: -6.31, lng: 143.96 },
+  { name: "Paraguay", code: "py", lat: -23.44, lng: -58.44 },
+  { name: "Paesi Bassi", code: "nl", lat: 52.13, lng: 5.29 },
+  { name: "Perù", code: "pe", lat: -9.19, lng: -75.02 },
+  { name: "Polonia", code: "pl", lat: 51.92, lng: 19.15 },
+  { name: "Portogallo", code: "pt", lat: 39.40, lng: -8.22 },
+  { name: "Qatar", code: "qa", lat: 25.35, lng: 51.18 },
+  { name: "Regno Unito", code: "gb", lat: 55.38, lng: -3.44 },
+  { name: "Repubblica Ceca", code: "cz", lat: 49.82, lng: 15.47 },
+  { name: "Repubblica Centrafricana", code: "cf", lat: 6.61, lng: 20.94 },
+  { name: "Repubblica Democratica del Congo", code: "cd", lat: -4.04, lng: 21.76 },
+  { name: "Repubblica Dominicana", code: "do", lat: 18.74, lng: -70.16 },
+  { name: "Romania", code: "ro", lat: 45.94, lng: 24.97 },
+  { name: "Ruanda", code: "rw", lat: -1.94, lng: 29.87 },
+  { name: "Russia", code: "ru", lat: 61.52, lng: 105.32 },
+  { name: "San Marino", code: "sm", lat: 43.94, lng: 12.46 },
+  { name: "Senegal", code: "sn", lat: 14.50, lng: -14.45 },
+  { name: "Serbia", code: "rs", lat: 44.02, lng: 21.01 },
+  { name: "Sierra Leone", code: "sl", lat: 8.46, lng: -11.78 },
+  { name: "Singapore", code: "sg", lat: 1.35, lng: 103.82 },
+  { name: "Siria", code: "sy", lat: 34.80, lng: 38.99 },
+  { name: "Slovacchia", code: "sk", lat: 48.67, lng: 19.70 },
+  { name: "Slovenia", code: "si", lat: 46.15, lng: 14.99 },
+  { name: "Somalia", code: "so", lat: 5.15, lng: 46.20 },
+  { name: "Spagna", code: "es", lat: 40.46, lng: -3.75 },
+  { name: "Sri Lanka", code: "lk", lat: 7.87, lng: 80.77 },
+  { name: "Sudafrica", code: "za", lat: -30.56, lng: 22.94 },
+  { name: "Sudan", code: "sd", lat: 12.86, lng: 30.22 },
+  { name: "Sudan del Sud", code: "ss", lat: 6.88, lng: 31.31 },
+  { name: "Suriname", code: "sr", lat: 3.92, lng: -56.03 },
+  { name: "Svezia", code: "se", lat: 60.13, lng: 18.64 },
+  { name: "Svizzera", code: "ch", lat: 46.82, lng: 8.23 },
+  { name: "Tagikistan", code: "tj", lat: 38.86, lng: 71.28 },
+  { name: "Tanzania", code: "tz", lat: -6.37, lng: 34.89 },
+  { name: "Thailandia", code: "th", lat: 15.87, lng: 100.99 },
+  { name: "Timor Est", code: "tl", lat: -8.87, lng: 125.73 },
+  { name: "Togo", code: "tg", lat: 8.62, lng: 0.82 },
+  { name: "Trinidad e Tobago", code: "tt", lat: 10.69, lng: -61.22 },
+  { name: "Tunisia", code: "tn", lat: 33.89, lng: 9.54 },
+  { name: "Turchia", code: "tr", lat: 38.96, lng: 35.24 },
+  { name: "Turkmenistan", code: "tm", lat: 38.97, lng: 59.56 },
+  { name: "Uganda", code: "ug", lat: 1.37, lng: 32.29 },
+  { name: "Ucraina", code: "ua", lat: 48.38, lng: 31.17 },
+  { name: "Ungheria", code: "hu", lat: 47.16, lng: 19.50 },
+  { name: "Uruguay", code: "uy", lat: -32.52, lng: -55.77 },
+  { name: "Uzbekistan", code: "uz", lat: 41.38, lng: 64.59 },
+  { name: "Vanuatu", code: "vu", lat: -15.38, lng: 166.96 },
+  { name: "Venezuela", code: "ve", lat: 6.42, lng: -66.59 },
+  { name: "Vietnam", code: "vn", lat: 14.06, lng: 108.28 },
+  { name: "Yemen", code: "ye", lat: 15.55, lng: 48.52 },
+  { name: "Zambia", code: "zm", lat: -13.13, lng: 27.85 },
+  { name: "Zimbabwe", code: "zw", lat: -19.02, lng: 29.15 },
+]
 
-Nome	Codice	Latitudine	Longitudine
-Afghanistan	AF	33.93	67.71
-Albania	AL	41.15	20.17
-Algeria	DZ	28.03	1.66
-Andorra	AD	42.55	1.6
-Angola	AO	-11.2	17.87
-Arabia Saudita	SA	23.89	45.08
-Argentina	AR	-38.42	-63.62
-Armenia	AM	40.07	45.04
-Australia	AU	-25.27	133.78
-Austria	AT	47.52	14.55
-Azerbaigian	AZ	40.14	47.58
-Bahamas	BS	25.03	-77.4
-Bahrain	BH	26	50.55
-Bangladesh	BD	23.68	90.36
-Belgio	BE	50.5	4.47
-Belize	BZ	17.19	-88.5
-Benin	BJ	9.31	2.32
-Bhutan	BT	27.51	90.43
-Bielorussia	BY	53.71	27.95
-Bolivia	BO	-16.29	-63.59
-Bosnia ed Erzegovina	BA	43.92	17.68
-Botswana	BW	-22.33	24.68
-Brasile	BR	-14.24	-51.93
-Brunei	BN	4.54	114.73
-Bulgaria	BG	42.73	25.49
-Burkina Faso	BF	12.36	-1.53
-Burundi	BI	-3.37	29.92
-Cambogia	KH	12.57	104.99
-Camerun	CM	3.85	11.5
-Canada	CA	56.13	-106.35
-Capo Verde	CV	16	-24.01
-Ciad	TD	15.45	18.73
-Cile	CL	-35.68	-71.54
-Cina	CN	35.86	104.2
-Cipro	CY	35.13	33.43
-Colombia	CO	4.57	-74.3
-Comore	KM	-11.88	43.87
-Congo	CG	-0.23	15.83
-Corea del Nord	KP	40.34	127.51
-Corea del Sud	KR	35.91	127.77
-Costa Rica	CR	9.75	-83.75
-Costa d'Avorio	CI	7.54	-5.55
-Croazia	HR	45.1	15.2
-Cuba	CU	21.52	-79.52
-Danimarca	DK	56.26	9.5
-Ecuador	EC	-1.83	-78.18
-Egitto	EG	26.82	30.8
-El Salvador	SV	13.79	-88.9
-Emirati Arabi Uniti	AE	23.42	53.85
-Eritrea	ER	15.18	39.78
-Estonia	EE	58.6	25.01
-Etiopia	ET	9.14	40.49
-Fiji	FJ	-17.71	178.07
-Filippine	PH	12.88	121.77
-Finlandia	FI	61.92	25.75
-Francia	FR	46.23	2.21
-Gabon	GA	-0.8	11.61
-Gambia	GM	13.44	-15.31
-Georgia	GE	42.32	43.36
-Germania	DE	51.17	10.45
-Ghana	GH	7.95	-1.02
-Giamaica	JM	18.11	-77.3
-Giappone	JP	36.2	138.25
-Gibuti	DJ	11.83	42.59
-Giordania	JO	30.59	36.24
-Grecia	GR	39.07	21.82
-Guatemala	GT	15.78	-90.23
-Guinea	GN	9.95	-11.24
-Guinea-Bissau	GW	11.8	-15.18
-Guinea Equatoriale	GQ	1.65	10.27
-Guyana	GY	4.86	-58.93
-Haiti	HT	18.97	-72.29
-Honduras	HN	15.2	-86.24
-India	IN	20.59	78.96
-Indonesia	ID	-0.79	113.92
-Iran	IR	32.43	53.69
-Iraq	IQ	33.22	43.68
-Irlanda	IE	53.41	-8.24
-Islanda	IS	64.96	-19.02
-Israele	IL	31.05	34.85
-Italia	IT	41.87	12.57
-Kazakhstan	KZ	48.02	66.92
-Kenya	KE	-0.02	37.91
-Kirghizistan	KG	41.2	74.77
-Kiribati	KI	-3.37	-168.73
-Kosovo	XK	42.6	20.9
-Kuwait	KW	29.31	47.48
-Laos	LA	19.86	102.5
-Lesotho	LS	-29.61	28.23
-Lettonia	LV	56.88	24.6
-Libano	LB	33.85	35.86
-Liberia	LR	6.43	-9.43
-Libia	LY	26.34	17.23
-Liechtenstein	LI	47.17	9.56
-Lituania	LT	55.17	23.88
-Lussemburgo	LU	49.82	6.13
-Macedonia del Nord	MK	41.61	21.75
-Madagascar	MG	-18.77	46.87
-Malawi	MW	-13.25	34.3
-Maldive	MV	3.2	73.22
-Malesia	MY	4.21	108.96
-Mali	ML	17.57	-4
-Malta	MT	35.94	14.38
-Marocco	MA	31.79	-7.09
-Mauritania	MR	21.01	-10.94
-Mauritius	MU	-20.35	57.55
-Messico	MX	23.63	-102.55
-Moldavia	MD	47.41	28.37
-Monaco	MC	43.73	7.4
-Mongolia	MN	46.86	103.85
-Montenegro	ME	42.71	19.37
-Mozambico	MZ	-18.67	35.53
-Myanmar	MM	21.92	95.96
-Namibia	NA	-22.96	18.49
-Nepal	NP	28.39	84.12
-Nicaragua	NI	12.87	-85.21
-Niger	NE	17.61	8.08
-Nigeria	NG	9.08	8.68
-Norvegia	NO	60.47	8.47
-Nuova Zelanda	NZ	-40.9	174.89
-Oman	OM	21.51	55.92
-Pakistan	PK	30.38	69.35
-Palau	PW	7.51	134.58
-Panama	PA	8.54	-80.78
-Papua Nuova Guinea	PG	-6.31	143.96
-Paraguay	PY	-23.44	-58.44
-Paesi Bassi	NL	52.13	5.29
-Peru	PE	-9.19	-75.02
-Polonia	PL	51.92	19.15
-Portogallo	PT	39.4	-8.22
-Qatar	QA	25.35	51.18
-Regno Unito	GB	55.38	-3.44
-Repubblica Ceca	CZ	49.82	15.47
-Repubblica Centrafricana	CF	6.61	20.94
-Repubblica Democratica del Congo	CD	-4.04	21.76
-Repubblica Dominicana	DO	18.74	-70.16
-Romania	RO	45.94	24.97
-Ruanda	RW	-1.94	29.87
-Russia	RU	61.52	105.32
-San Marino	SM	43.94	12.46
-Senegal	SN	14.5	-14.45
-Serbia	RS	44.02	21.01
-Sierra Leone	SL	8.46	-11.78
-Singapore	SG	1.35	103.82
-Siria	SY	34.8	38.99
-Slovacchia	SK	48.67	19.7
-Slovenia	SI	46.15	14.99
-Somalia	SO	5.15	46.2
-Spagna	ES	40.46	-3.75
-Sri Lanka	LK	7.87	80.77
-Sudafrica	ZA	-30.56	22.94
-Sudan	SD	12.86	30.22
-Sudan del Sud	SS	6.88	31.31
-Suriname	SR	3.92	-56.03
-Svezia	SE	60.13	18.64
-Svizzera	CH	46.82	8.23
-Tagikistan	TJ	38.86	71.28
-Tanzania	TZ	-6.37	34.89
-Thailandia	TH	15.87	100.99
-Timor Est	TL	-8.87	125.73
-Togo	TG	8.62	0.82
-Trinidad e Tobago	TT	10.69	-61.22
-Tunisia	TN	33.89	9.54
-Turchia	TR	38.96	35.24
-Turkmenistan	TM	38.97	59.56
-Uganda	UG	1.37	32.29
-Ucraina	UA	48.38	31.17
-Ungheria	HU	47.16	19.5
-Uruguay	UY	-32.52	-55.77
-Uzbekistan	UZ	41.38	64.59
-Vanuatu	VU	-15.38	166.96
-Venezuela	VE	6.42	-66.59
-Vietnam	VN	14.06	108.28
-Yemen	YE	15.55	48.52
-Zambia	ZM	-13.13	27.85
-Zimbabwe	ZW	-19.02	29.15
-
+export default COUNTRIES
