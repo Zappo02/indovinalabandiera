@@ -181,6 +181,16 @@ function GameBoard({ dateStr, onBack, isDark, C }) {
         </div>
       </div>
 
+      {/* Bandiera da indovinare */}
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', margin: '12px 0 8px' }}>
+        <div style={{ width: 180, height: 120, borderRadius: 6, overflow: 'hidden', border: `2px solid ${C.headerBorder}`, background: C.cellEmpty }}>
+          <span className={`fi fi-${country.code}`} style={{ width: '100%', height: '100%', backgroundSize: 'cover', backgroundPosition: 'center', display: 'block' }} />
+        </div>
+        <div style={{ fontSize: 12, color: C.textMuted, marginTop: 6, letterSpacing: 1 }}>
+          {game.done ? (game.won ? '✓ Indovinato!' : `Risposta: ${country.name}`) : 'Di che paese è questa bandiera?'}
+        </div>
+      </div>
+
       {/* Grid */}
       <div style={{ display: 'flex', flexDirection: 'column', gap: 5, margin: '12px 0 8px', animation: shake ? 'shake 0.5s' : 'none' }}>
         {rows.map((row, i) => (
